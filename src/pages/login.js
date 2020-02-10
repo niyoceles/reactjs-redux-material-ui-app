@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import AppIcon from '../images/relax.png';
+import AppIcon from '../images/logo.png';
 import axios from 'axios';
 
 //Mui
@@ -12,33 +12,9 @@ import Textfield from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = {
-  form: {
-    textAlign: 'center'
-  },
-  image: {
-    margin: '20px auto 20px auto',
-    width: '100px'
-  },
-  pageTitle: {
-    margin: '10px auto 10px auto'
-  },
-  textField: {
-    margin: '15px auto 15px auto'
-  },
-  button: {
-    marginTop: 20,
-    position: 'relative'
-  },
-  customError: {
-    color: 'red',
-    fontSize: '0.9rem',
-    marginTop: 10
-  },
-  progress: {
-    position: 'absolute'
-  }
-};
+const styles = theme => ({
+  ...theme.spreadThis
+});
 
 class login extends Component {
   state = {
@@ -61,6 +37,7 @@ class login extends Component {
       .post('/login', userData)
       .then(res => {
         console.log(res.data);
+        localStorage.setItem('fBIdToken', `Bearer ${res.data.token}`);
         this.setState({
           loading: false
         });
@@ -87,7 +64,7 @@ class login extends Component {
         <Grid item sm />
         <Grid item sm>
           <img src={AppIcon} alt='logo' className={classes.image} />
-          <Typography variant='h2' className={classes.pageTitle}>
+          <Typography variant='h3' className={classes.pageTitle}>
             Login
           </Typography>
           <form noValidate onSubmit={this.handleSignin}>
