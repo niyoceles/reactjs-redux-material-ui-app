@@ -1,2 +1,2 @@
 export * from './userActions';
-export * from './dataAction';
+export * from './postActions';

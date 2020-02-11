@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
-// import EditDetails from './EditDetails';
+import EditDetails from './EditDetails';
 import MyButton from '../utils/MyButton';
-// import ProfileSkeleton from '../../util/ProfileSkeleton';
+import ProfileSkeleton from '../utils/ProfileSkeleton';
 // MUI stuff
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -54,7 +54,11 @@ class Profile extends Component {
         <Paper className={classes.paper}>
           <div className={classes.profile}>
             <div className='image-wrapper'>
-              <img src={imageUrl} alt='profile' className='profile-image' />
+              <img
+                src={imageUrl}
+                alt='profile'
+                className='profile-image'
+              />
               <input
                 type='file'
                 id='imageInput'
@@ -104,7 +108,7 @@ class Profile extends Component {
             <MyButton tip='Logout' onClick={this.handleLogout}>
               <KeyboardReturn color='primary' />
             </MyButton>
-            {/* <EditDetails /> */}
+            <EditDetails />
           </div>
         </Paper>
       ) : (
@@ -133,9 +137,7 @@ class Profile extends Component {
         </Paper>
       )
     ) : (
-      {
-        /* <ProfileSkeleton /> */
-      }
+      <ProfileSkeleton />
     );
 
     return profileMarkup;

@@ -67,8 +67,8 @@ export default {
         }
       },
       '& .profile-image': {
-        width: 200,
-        height: 200,
+        width: 150,
+        height: 150,
         objectFit: 'cover',
         maxWidth: '100%',
         borderRadius: '50%'
@@ -97,6 +97,26 @@ export default {
       '& a': {
         margin: '20px 10px'
       }
+    }
+  },
+  spreadProfileSkeleton: {
+    handle: {
+      height: 20,
+      backgroundColor: '#00bcd4',
+      width: 60,
+      margin: '0 auto 7px auto'
+    },
+    fullLine: {
+      height: 15,
+      backgroundColor: 'rgba(0,0,0,0.6)',
+      width: '100%',
+      marginBottom: 10
+    },
+    halfLine: {
+      height: 15,
+      backgroundColor: 'rgba(0,0,0,0.6)',
+      width: '50%',
+      marginBottom: 10
     }
   }
 };

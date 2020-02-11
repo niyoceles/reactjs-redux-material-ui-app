@@ -6,7 +6,7 @@ import AppIcon from '../images/logo.png';
 //Mui
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Textfield from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 // redux
@@ -60,8 +60,8 @@ class login extends Component {
           <Typography variant='h3' className={classes.pageTitle}>
             Login
           </Typography>
-          <form noValidate onSubmit={this.handleSignin}>
-            <Textfield
+          <form noValidate onSubmit={this.handleSignin} autoComplete='off'>
+            <TextField
               id='email'
               name='email'
               type='email'
@@ -74,7 +74,7 @@ class login extends Component {
               onChange={this.handleChange}
               fullWidth
             />
-            <Textfield
+            <TextField
               id='password'
               name='password'
               type='password'
