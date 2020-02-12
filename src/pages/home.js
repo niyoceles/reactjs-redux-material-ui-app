@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import axios from 'axios';
 import Posts from '../components/Posts';
 import Profile from '../components/Profile';
 import { connect } from 'react-redux';
-import { getPosts, getPost } from '../redux/actions';
+import { getPosts } from '../redux/actions';
 
 class home extends Component {
   componentDidMount() {

@@ -13,11 +13,13 @@ import Typography from '@material-ui/core/Typography';
 import ChatIcon from '@material-ui/icons/Chat';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import DeletePost from './DeletePost';
 import { connect } from 'react-redux';
 import { likePost, unlikePost } from '../redux/actions';
 
 const styles = {
   card: {
+    position: 'relative',
     display: 'flex',
     marginBottom: 20
   },
@@ -34,8 +36,7 @@ class Posts extends Component {
   likedPost = () => {
     if (
       this.props.user.likes &&
-      this.props.user.likes.find(
-        (like) => like.postId === this.props.post.postId)
+      this.props.user.likes.find(like => like.postId === this.props.post.postId)
     )
       return true;
     else return false;
@@ -49,7 +50,7 @@ class Posts extends Component {
     this.props.unlikePost(this.props.post.postId);
   };
   render() {
-    console.log('liked', this.likedPost());
+    // console.log('liked', this.likedPost());
     dayjs.extend(relativeTime);
     const {
       classes,
@@ -62,7 +63,10 @@ class Posts extends Component {
         likeCount,
         commentCount
       },
-      user: { authenticated }
+      user: {
+        authenticated,
+        credentials: { handle }
+      }
     } = this.props;
 
     const likeButton = !authenticated ? (
@@ -80,6 +84,10 @@ class Posts extends Component {
         <FavoriteBorder color='primary' />
       </MyButton>
     );
+    const deleteButton =
+      authenticated && userHandle === handle ? (
+        <DeletePost postId={postId} />
+      ) : null;
 
     return (
       <Card className={classes.card}>
@@ -98,6 +106,7 @@ class Posts extends Component {
           >
             {userHandle}
           </Typography>
+          <Typography>{deleteButton}</Typography>
           <Typography variant='body2'>{dayjs(createAt).fromNow()}</Typography>
           <Typography variant='body1'>{body}</Typography>
           {likeButton}
