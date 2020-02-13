@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import MyButton from '../utils/MyButton';
-// import PostPost from '../post/PostPost';
+import MyButton from '../../utils/MyButton';
+import AddPost from '../posts/AddPost';
 // import Notifications from './Notifications';
 // MUI stuff
 import AppBar from '@material-ui/core/AppBar';
@@ -20,7 +20,7 @@ class Navbar extends Component {
         <Toolbar className='nav-container'>
           {authenticated ? (
             <Fragment>
-              {/* <PostPost /> */}
+              <AddPost />
               <Link to='/'>
                 <MyButton tip='Home'>
                   <HomeIcon />

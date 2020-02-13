@@ -39,6 +39,9 @@ export default function(state = initialState, action) {
         post => post.postId === action.payload.postId
       );
       state.posts[index] = action.payload;
+      if (state.posts.postId === action.payload.postId) {
+        state.posts = action.payload;
+      }
       return {
         ...state
       };

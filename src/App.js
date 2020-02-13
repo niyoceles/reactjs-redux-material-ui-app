@@ -5,13 +5,14 @@ import './App.css';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 //component
-import Navbar from './components/Navbar';
+import Navbar from './components/layout/Navbar';
 import AuthRoute from './utils/AuthRoute';
 
 //pages
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
+import user from './pages/user'
 import objectTheme from './utils/theme';
 import jwtDecode from 'jwt-decode';
 import { Provider } from 'react-redux';
@@ -46,6 +47,7 @@ class App extends Component {
                 <Route exact path='/' component={home} />
                 <AuthRoute exact path='/signup' component={signup} />
                 <AuthRoute exact path='/login' component={login} />
+                <AuthRoute exact path='/user/:handle' component={user} />
               </Switch>
             </div>
           </Router>

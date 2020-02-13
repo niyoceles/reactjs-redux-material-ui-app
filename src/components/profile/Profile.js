@@ -4,8 +4,8 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import EditDetails from './EditDetails';
-import MyButton from '../utils/MyButton';
-import ProfileSkeleton from '../utils/ProfileSkeleton';
+import MyButton from '../../utils/MyButton';
+import ProfileSkeleton from '../../utils/ProfileSkeleton';
 // MUI stuff
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -19,7 +19,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 //Redux
 import { connect } from 'react-redux';
-import { logoutUser, uploadImage } from '../redux/actions';
+import { logoutUser, uploadImage } from '../../redux/actions';
 
 const styles = theme => ({
   ...theme.spreadProfile
@@ -54,11 +54,7 @@ class Profile extends Component {
         <Paper className={classes.paper}>
           <div className={classes.profile}>
             <div className='image-wrapper'>
-              <img
-                src={imageUrl}
-                alt='profile'
-                className='profile-image'
-              />
+              <img src={imageUrl} alt='profile' className='profile-image' />
               <input
                 type='file'
                 id='imageInput'

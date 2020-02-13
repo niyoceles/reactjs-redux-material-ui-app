@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {
   SET_USER,
   SET_ERRORS,
@@ -9,10 +10,12 @@ import {
 } from '../types';
 import axios from 'axios';
 
+const { REACT_APP_URL_API } = process.env;
+
 export const loginUser = (userData, history) => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .post('/login', userData)
+    .post(`${REACT_APP_URL_API}/login`, userData)
     .then(res => {
       setAuthorization(res.data.token);
       dispatch(getUserData());
@@ -20,14 +23,14 @@ export const loginUser = (userData, history) => dispatch => {
       history.push('/'); //redirect to the home page
     })
     .catch(err => {
-      dispatch({ type: SET_ERRORS, payload: err.response.data });
+      dispatch({ type: SET_ERRORS, payload: err.response.data.errors });
     });
 };
 
 export const signupUser = (newUserData, history) => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .post('/signup', newUserData)
+    .post(`${REACT_APP_URL_API}/signup`, newUserData)
     .then(res => {
       setAuthorization(res.data.token);
       dispatch(getUserData());
@@ -35,7 +38,7 @@ export const signupUser = (newUserData, history) => dispatch => {
       history.push('/'); //redirect to the home page
     })
     .catch(err => {
-      dispatch({ type: SET_ERRORS, payload: err.response.data });
+      dispatch({ type: SET_ERRORS, payload: err.response.data.errors });
     });
 };
 
@@ -55,7 +58,7 @@ export const logoutUser = () => dispatch => {
 export const getUserData = () => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .get('/user')
+    .get(`${REACT_APP_URL_API}/user`)
     .then(res => {
       dispatch({ type: SET_USER, payload: res.data });
     })
@@ -66,7 +69,7 @@ export const getUserData = () => dispatch => {
 export const uploadImage = formData => dispatch => {
   dispatch({ type: LOADING_USER });
   axios
-    .post('/user/image', formData)
+    .post(`${REACT_APP_URL_API}/user/image`, formData)
     .then(() => {
       dispatch(getUserData());
     })
@@ -77,7 +80,7 @@ export const uploadImage = formData => dispatch => {
 export const editUserDetails = userDetails => dispatch => {
   dispatch({ type: LOADING_USER });
   axios
-    .post('/user', userDetails)
+    .post(`${REACT_APP_URL_API}/user`, userDetails)
     .then(() => {
       dispatch(getUserData());
     })
@@ -86,7 +89,7 @@ export const editUserDetails = userDetails => dispatch => {
 
 export const markNotificationsRead = notificationIds => dispatch => {
   axios
-    .post('/notifications', notificationIds)
+    .post(`${REACT_APP_URL_API}/notifications`, notificationIds)
     .then(res => {
       dispatch({
         type: MARK_NOTIFICATIONS_READ

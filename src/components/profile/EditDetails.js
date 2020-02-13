@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import MyButton from '../utils/MyButton';
+import MyButton from '../../utils/MyButton';
 // Redux stuff
 import { connect } from 'react-redux';
-import { editUserDetails } from '../redux/actions';
+import { editUserDetails } from '../../redux/actions';
 // MUI Stuff
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';

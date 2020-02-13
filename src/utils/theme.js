@@ -43,6 +43,21 @@ export default {
       position: 'absolute'
     }
   },
+  addPostStyle: {
+    submitButton: {
+      position: 'relative',
+      float: 'right',
+      marginTop: 10
+    },
+    progressSpinner: {
+      position: 'absolute'
+    },
+    closeButton: {
+      position: 'absolute',
+      left: '91%',
+      top: '6%'
+    }
+  },
   spreadProfile: {
     invisibleSeparator: {
       border: 'none',
@@ -117,6 +132,41 @@ export default {
       backgroundColor: 'rgba(0,0,0,0.6)',
       width: '50%',
       marginBottom: 10
+    }
+  },
+  postDialogStyle: {
+    profileImage: {
+      maxWidth: 200,
+      height: 200,
+      borderRadius: '50%',
+      objectFit: 'cover'
+    },
+    dialogContent: {
+      padding: 20
+    },
+    closeButton: {
+      position: 'absolute',
+      left: '90%'
+    },
+    expandButton: {
+      position: 'absolute',
+      left: '90%'
+    },
+    spinnerDiv: {
+      textAlign: 'center',
+      marginTop: 50,
+      marginBottom: 50
+    }
+  },
+  commentStyle:{
+    commentImage: {
+      maxWidth: '100%',
+      height: 100,
+      objectFit: 'cover',
+      borderRadius: '50%'
+    },
+    commentData: {
+      marginLeft: 20
     }
   }
 };
