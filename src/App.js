@@ -24,8 +24,7 @@ import axios from 'axios';
 const theme = createMuiTheme(objectTheme);
 
 //set URl because proxy only work in development
-axios.defaults.baseURL =
-  'https://europe-west1-lovers-ca431.cloudfunctions.net/api';
+axios.defaults.baseURL = 'http://localhost:5000/lovers-ca431/europe-west1/api';
 
 const token = localStorage.fBIdToken;
 if (token) {
@@ -51,7 +50,7 @@ class App extends Component {
                 <Route exact path='/' component={home} />
                 <AuthRoute exact path='/signup' component={signup} />
                 <AuthRoute exact path='/login' component={login} />
-                <AuthRoute exact path='/user/:handle' component={user} />
+                <AuthRoute exact path='/user/:username' component={user} />
               </Switch>
             </div>
           </Router>

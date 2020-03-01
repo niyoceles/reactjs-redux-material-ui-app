@@ -39,10 +39,10 @@ class PostDialog extends Component {
   handleOpen = () => {
     let oldPath = window.location.pathname;
 
-    const { userHandle, postId } = this.props;
-    const newPath = `/users/${userHandle}/post/${postId}`;
+    const { userName, postId } = this.props;
+    const newPath = `/users/${userName}/post/${postId}`;
 
-    if (oldPath === newPath) oldPath = `/users/${userHandle}`;
+    if (oldPath === newPath) oldPath = `/users/${userName}`;
 
     window.history.pushState(null, null, newPath);
 
@@ -65,7 +65,7 @@ class PostDialog extends Component {
         likeCount,
         commentCount,
         userImage,
-        userHandle,
+        userName,
         comments
       },
       UI: { loading }
@@ -85,9 +85,9 @@ class PostDialog extends Component {
             component={Link}
             color='primary'
             variant='h5'
-            to={`/users/${userHandle}`}
+            to={`/users/${userName}`}
           >
-            @{userHandle}
+            @{userName}
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <Typography variant='body2' color='textSecondary'>
@@ -142,7 +142,7 @@ PostDialog.propTypes = {
   clearErrors: PropTypes.func.isRequired,
   getPost: PropTypes.func.isRequired,
   postId: PropTypes.string.isRequired,
-  userHandle: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
   post: PropTypes.object.isRequired,
   UI: PropTypes.object.isRequired
 };

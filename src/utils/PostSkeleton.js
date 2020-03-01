@@ -23,7 +23,7 @@ const styles = theme => ({
     minWidth: 200,
     objectFit: 'cover'
   },
-  handle: {
+  username: {
     width: 60,
     height: 18,
     backgroundColor: theme.palette.primary.main,
@@ -56,7 +56,7 @@ const PostSkeleton = props => {
     <Card className={classes.card} key={index}>
       <CardMedia className={classes.cover} image={NoImg} />
       <CardContent className={classes.cardContent}>
-        <div className={classes.handle} />
+        <div className={classes.username} />
         <div className={classes.date} />
         <div className={classes.fullLine} />
         <div className={classes.fullLine} />

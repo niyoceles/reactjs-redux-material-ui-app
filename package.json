@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://europe-west1-lovers-ca431.cloudfunctions.net/api"
+  "proxy": "http://localhost:5000/lovers-ca431/europe-west1/api"
 }

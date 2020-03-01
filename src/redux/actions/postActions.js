@@ -91,9 +91,11 @@ export const unLikePost = postId => dispatch => {
 };
 // Submit a comment
 export const submitComment = (postId, commentData) => dispatch => {
+  console.log(postId, commentData);
   axios
     .post(`/post/${postId}/comment`, commentData)
     .then(res => {
+      console.log(res.data);
       dispatch({
         type: SUBMIT_COMMENT,
         payload: res.data
@@ -101,6 +103,7 @@ export const submitComment = (postId, commentData) => dispatch => {
       dispatch(clearErrors());
     })
     .catch(err => {
+      console.log(err.response.data);
       dispatch({
         type: SET_ERRORS,
         payload: err.response.data
@@ -116,10 +119,10 @@ export const deletePost = postId => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const getUserData = userHandle => dispatch => {
+export const getUserData = userName => dispatch => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get(`/user/${userHandle}`)
+    .get(`/user/${userName}`)
     .then(res => {
       dispatch({
         type: SET_POSTS,
