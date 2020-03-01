@@ -10,12 +10,12 @@ import {
 } from '../types';
 import axios from 'axios';
 
-const { REACT_APP_URL_API } = process.env;
+// const { REACT_APP_URL_API } = process.env;
 
 export const loginUser = (userData, history) => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .post(`${REACT_APP_URL_API}/login`, userData)
+    .post('/login', userData)
     .then(res => {
       setAuthorization(res.data.token);
       dispatch(getUserData());
@@ -30,7 +30,7 @@ export const loginUser = (userData, history) => dispatch => {
 export const signupUser = (newUserData, history) => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .post(`${REACT_APP_URL_API}/signup`, newUserData)
+    .post('/signup', newUserData)
     .then(res => {
       setAuthorization(res.data.token);
       dispatch(getUserData());
@@ -58,7 +58,7 @@ export const logoutUser = () => dispatch => {
 export const getUserData = () => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .get(`${REACT_APP_URL_API}/user`)
+    .get('/user')
     .then(res => {
       dispatch({ type: SET_USER, payload: res.data });
     })
@@ -69,7 +69,7 @@ export const getUserData = () => dispatch => {
 export const uploadImage = formData => dispatch => {
   dispatch({ type: LOADING_USER });
   axios
-    .post(`${REACT_APP_URL_API}/user/image`, formData)
+    .post('/user/image', formData)
     .then(() => {
       dispatch(getUserData());
     })
@@ -80,7 +80,7 @@ export const uploadImage = formData => dispatch => {
 export const editUserDetails = userDetails => dispatch => {
   dispatch({ type: LOADING_USER });
   axios
-    .post(`${REACT_APP_URL_API}/user`, userDetails)
+    .post('/user', userDetails)
     .then(() => {
       dispatch(getUserData());
     })
@@ -89,7 +89,7 @@ export const editUserDetails = userDetails => dispatch => {
 
 export const markNotificationsRead = notificationIds => dispatch => {
   axios
-    .post(`${REACT_APP_URL_API}/notifications`, notificationIds)
+    .post('/notifications', notificationIds)
     .then(res => {
       dispatch({
         type: MARK_NOTIFICATIONS_READ

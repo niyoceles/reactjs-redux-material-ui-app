@@ -17,7 +17,7 @@ class Comments extends Component {
     return (
       <Grid container>
         {comments.map((comment, index) => {
-          const { body, createdAt, userImage, userHandle } = comment;
+          const { body, createdAt, userImage, userName } = comment;
           return (
             <Fragment key={createdAt}>
               <Grid item sm={12}>
@@ -34,10 +34,10 @@ class Comments extends Component {
                       <Typography
                         variant='h5'
                         component={Link}
-                        to={`/users/${userHandle}`}
+                        to={`/users/${userName}`}
                         color='primary'
                       >
-                        {userHandle}
+                        {userName}
                       </Typography>
                       <Typography variant='body2' color='textSecondary'>
                         {dayjs(createdAt).format('h:mm a, MMMM DD YYYY')}

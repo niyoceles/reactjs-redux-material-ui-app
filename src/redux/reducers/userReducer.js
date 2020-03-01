@@ -41,7 +41,7 @@ export default function(state = initialState, action) {
         likes: [
           ...state.likes,
           {
-            userHandle: state.credentials.handle,
+            userName: state.credentials.username,
             postId: action.payload.postId
           }
         ]

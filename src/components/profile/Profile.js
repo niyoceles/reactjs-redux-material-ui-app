@@ -43,7 +43,7 @@ class Profile extends Component {
     const {
       classes,
       user: {
-        credentials: { handle, createdAt, imageUrl, bio, website, location },
+        credentials: { username, createdAt, imageUrl, bio, website, location },
         loading,
         authenticated
       }
@@ -73,11 +73,11 @@ class Profile extends Component {
             <div className='profile-details'>
               <MuiLink
                 component={Link}
-                to={`/users/${handle}`}
+                to={`/users/${username}`}
                 color='primary'
                 variant='h5'
               >
-                @{handle}
+                @{username}
               </MuiLink>
               <hr />
               {bio && <Typography variant='body2'>{bio}</Typography>}

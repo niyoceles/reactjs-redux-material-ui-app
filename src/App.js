@@ -12,7 +12,7 @@ import AuthRoute from './utils/AuthRoute';
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
-import user from './pages/user'
+import user from './pages/user';
 import objectTheme from './utils/theme';
 import jwtDecode from 'jwt-decode';
 import { Provider } from 'react-redux';
@@ -22,6 +22,10 @@ import { logoutUser, getUserData } from '../src/redux/actions';
 import axios from 'axios';
 
 const theme = createMuiTheme(objectTheme);
+
+//set URl because proxy only work in development
+axios.defaults.baseURL =
+  'https://europe-west1-lovers-ca431.cloudfunctions.net/api';
 
 const token = localStorage.fBIdToken;
 if (token) {
@@ -47,7 +51,7 @@ class App extends Component {
                 <Route exact path='/' component={home} />
                 <AuthRoute exact path='/signup' component={signup} />
                 <AuthRoute exact path='/login' component={login} />
-                <AuthRoute exact path='/user/:handle' component={user} />
+                <AuthRoute exact path='/user/:username' component={user} />
               </Switch>
             </div>
           </Router>

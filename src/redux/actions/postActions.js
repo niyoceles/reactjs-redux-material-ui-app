@@ -14,13 +14,12 @@ import {
   SUBMIT_COMMENT
 } from '../types';
 import axios from 'axios';
-const { REACT_APP_URL_API } = process.env;
 
 // Get all posts
 export const getPosts = () => dispatch => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get(`${REACT_APP_URL_API}/posts`)
+    .get('/posts')
     .then(res => {
       dispatch({
         type: SET_POSTS,
@@ -37,7 +36,7 @@ export const getPosts = () => dispatch => {
 export const getPost = postId => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .get(`${REACT_APP_URL_API}/post/${postId}`)
+    .get(`/post/${postId}`)
     .then(res => {
       dispatch({
         type: SET_POST,
@@ -51,7 +50,7 @@ export const getPost = postId => dispatch => {
 export const addPost = newPost => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .post(`${REACT_APP_URL_API}/post`, newPost)
+    .post('/post', newPost)
     .then(res => {
       dispatch({
         type: POST_POST,
@@ -93,7 +92,7 @@ export const unLikePost = postId => dispatch => {
 // Submit a comment
 export const submitComment = (postId, commentData) => dispatch => {
   axios
-    .post(`${REACT_APP_URL_API}/post/${postId}/comment`, commentData)
+    .post(`/post/${postId}/comment`, commentData)
     .then(res => {
       dispatch({
         type: SUBMIT_COMMENT,
@@ -117,10 +116,10 @@ export const deletePost = postId => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const getUserData = userHandle => dispatch => {
+export const getUserData = userName => dispatch => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get(`${REACT_APP_URL_API}/user/${userHandle}`)
+    .get(`/user/${userName}`)
     .then(res => {
       dispatch({
         type: SET_POSTS,
