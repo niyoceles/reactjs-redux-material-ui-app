@@ -40,19 +40,19 @@ class Posts extends Component {
         body,
         createAt,
         userImage,
-        userHandle,
+        userName,
         postId,
         likeCount,
         commentCount
       },
       user: {
         authenticated,
-        credentials: { handle }
+        credentials: { username }
       }
     } = this.props;
 
     const deleteButton =
-      authenticated && userHandle === handle ? (
+      authenticated && userName === username ? (
         <DeletePost postId={postId} />
       ) : null;
 
@@ -67,11 +67,11 @@ class Posts extends Component {
           <Typography
             variant='h5'
             component={Link}
-            to={`/user/${userHandle}`}
+            to={`/user/${userName}`}
             color='primary'
             className={classes.image}
           >
-            {userHandle}
+            {userName}
           </Typography>
           <Typography>{deleteButton}</Typography>
           <Typography variant='body2'>{dayjs(createAt).fromNow()}</Typography>
@@ -83,7 +83,7 @@ class Posts extends Component {
           <span>{commentCount} comments</span>
           <PostDialog
             postId={postId}
-            userHandle={userHandle}
+            userName={userName}
             openDialog={this.props.openDialog}
           />
         </CardContent>

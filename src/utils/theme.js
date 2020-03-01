@@ -115,7 +115,7 @@ export default {
     }
   },
   spreadProfileSkeleton: {
-    handle: {
+    username: {
       height: 20,
       backgroundColor: '#00bcd4',
       width: 60,
@@ -158,7 +158,7 @@ export default {
       marginBottom: 50
     }
   },
-  commentStyle:{
+  commentStyle: {
     commentImage: {
       maxWidth: '100%',
       height: 100,

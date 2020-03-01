@@ -34,7 +34,7 @@ class signup extends Component {
     sex: '',
     password: '',
     passwordConfirm: '',
-    handle: '',
+    username: '',
     errors: {}
   };
 
@@ -55,7 +55,7 @@ class signup extends Component {
       sex: this.state.sex,
       password: this.state.password,
       passwordConfirm: this.state.passwordConfirm,
-      handle: this.state.handle
+      username: this.state.username
     };
     //from action creator
     this.props.signupUser(newUserData, this.props.history);
@@ -144,15 +144,15 @@ class signup extends Component {
               fullWidth
             />
             <Textfield
-              id='handle'
-              name='handle'
+              id='username'
+              name='username'
               type='text'
-              label='Handle'
+              label='username'
               variant='outlined'
               className={classes.textField}
-              helperText={errors.handle}
-              error={errors.handle ? true : false}
-              value={this.state.handle}
+              helperText={errors.username}
+              error={errors.username ? true : false}
+              value={this.state.username}
               onChange={this.handleChange}
               fullWidth
             />

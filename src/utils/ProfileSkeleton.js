@@ -24,7 +24,7 @@ const ProfileSkeleton = props => {
         </div>
         <hr />
         <div className='profile-details'>
-          <div className={classes.handle} />
+          <div className={classes.username} />
           <hr />
           <div className={classes.fullLine} />
           <div className={classes.fullLine} />

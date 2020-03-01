@@ -116,10 +116,10 @@ export const deletePost = postId => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const getUserData = userHandle => dispatch => {
+export const getUserData = userName => dispatch => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get(`/user/${userHandle}`)
+    .get(`/user/${userName}`)
     .then(res => {
       dispatch({
         type: SET_POSTS,
