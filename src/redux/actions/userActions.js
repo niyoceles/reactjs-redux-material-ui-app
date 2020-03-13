@@ -38,6 +38,7 @@ export const signupUser = (newUserData, history) => dispatch => {
       history.push('/'); //redirect to the home page
     })
     .catch(err => {
+      console.log(err.response.data.errors);
       dispatch({ type: SET_ERRORS, payload: err.response.data.errors });
     });
 };

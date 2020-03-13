@@ -24,8 +24,7 @@ import axios from 'axios';
 const theme = createMuiTheme(objectTheme);
 
 //set URl because proxy only work in development
-axios.defaults.baseURL =
-  'https://europe-west1-lovers-ca431.cloudfunctions.net/api';
+axios.defaults.baseURL = 'http://localhost:5000/lovers-ca431/europe-west1/api';
 
 const token = localStorage.fBIdToken;
 if (token) {
